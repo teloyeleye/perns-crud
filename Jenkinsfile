@@ -1,29 +1,13 @@
 pipeline {
-
   agent any
-  
   stages {
-    
-    stage("build") {
-      
+    stage("run frontend") {
       steps {
-          echo "building the application..."
-          echo "Application built successfully"
-      }
-    }
-    
-    stage("test") {
-      
-      steps {
-          echo "testing the application..."
-      }
-    }
-    
-    stage("deploy") {
-      
-      steps {
-          echo "deploying the application..."
-      }
-    }
-  }
+          echo "exectuting node app"
+          nodejs('NodeJS') {
+            sh 'npm install'
+          }
+       }
+     }
+   }
 }
